@@ -28,6 +28,10 @@ def verify_board_id(folder):
                 print(f"board_id should be set for {filename}")
                 valid = False
 
+            cleaned_filename = str(filename).split(os.path.sep)[-1][:-3]
+            if board_id != cleaned_filename:
+                print(f"board_id filename mismatch: {board_id} != {cleaned_filename}")
+
     return valid
 
 def valid_date(date):
